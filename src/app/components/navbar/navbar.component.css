@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    height: 10vh;
+    background-color: burlywood;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+
+}
+
+nav ul li{
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: 15px;    
+}
