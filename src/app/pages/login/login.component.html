@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="bootstrap-wrapper">
+    <div class="cntainer">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                    <div class="container text-center">
+                        <img class="exam-logo" src="../../../assets/logo.png.jpg" alt="">
+                    </div>
+                    <h1 class="text-center">Login to get Started</h1>
+                    <div class="container text-center">
+
+                        <form (ngSubmit)="loginSubmit()">
+
+                            <!-- Email Id -->
+
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Email Id</mat-label>
+                                <input [(ngModel)]="loginData.username" name="username" type="email" matInput
+                                    placeholder="Enter Your Email ID">
+                            </mat-form-field>
+
+                            <!-- Password -->
+                            <mat-form-field class="full-width" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input [(ngModel)]="loginData.password" name="password" type="password" matInput
+                                    placeholder="Enter Your Password">
+                            </mat-form-field>
+                            <br>
+                            <a [routerLink]="'/signup'" matTooltip="Login" mat-icon-button
+                                class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                                <mat-label>New User ?</mat-label>
+                            </a>
+                            <div class="container text-center">
+                                <button type="submit" mat-raised-button color="primary">Login</button>
+                                <button type="reset" class="ml20 mb20" mat-raised-button color="accent">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

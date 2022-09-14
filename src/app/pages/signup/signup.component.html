@@ -3,12 +3,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-
+                <mat-card>
                 <div class="container text-center">
                     <img class="exam-logo" src="../../../assets/logo.png.jpg" alt="">
                 </div>
           
                 <h1 class="text-center">Register To the Best Exam Portal</h1>
+
+                <div class="container text-center">
                 <form (ngSubmit)="formSubmit()">
                     <!-- First Name -->
                     <mat-form-field class="full-width" appearance="outline">
@@ -23,7 +25,7 @@
                     <!-- Contact Number -->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Contact number</mat-label>
-                        <input [(ngModel)]="user.contactNumber" name="contactNumber" type="number" matInput
+                        <input [(ngModel)]="user.contactNumber" name="contactNumber" type="number" max="10" matInput
                             placeholder="Placeholder">
                     </mat-form-field>
                     <!-- Email Id -->
@@ -50,13 +52,13 @@
 
                     <div class="container text-center">
                         <button mat-raised-button color="primary">Register</button>
-                        <button type="reset" style="margin-left: 10px;" mat-raised-button color="accent">Clear</button>
+                        <button type="reset"class="ml20 mb20" mat-raised-button color="accent">Clear</button>
                     </div>
                   
                    
                 </form>
-               
-                     
+            </div>
+        </mat-card>
             </div>
         </div>
     </div>

@@ -1,7 +1,9 @@
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchAll } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private snack: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -23,21 +25,20 @@ export class SignupComponent implements OnInit {
     about: '',
   }
 
-
-
-  
-
   formSubmit() {
-    var validation:boolean= this.isValidated();
+    var validation: boolean = this.isValidated();
     console.log(validation);
     if (validation == true) {
       this.userService.addUser(this.user).subscribe(
-        (data) => {
+        (data: any) => {
           console.log("Data : ", data);
-          alert("Congrats You have been registered Successfully!");
-        }, (error) => {
+          Swal.fire("Success", "Welcome " + data.userList[0].firstName + " you have been registered with Id : " +data.userList[0].id , "success");
+        }, (error:any) => {
           console.log("Error", error);
-          alert("Something Went Wrong");
+          var errorMessage:string = (error.error.message=="USER_ALREADY_EXISTS") ?"User Exist with "+this.user.email+" email Id, Please try with different email" : "Something went Wrong";
+          this.snack.open(errorMessage, "", {
+            duration: 5000
+          });
         }
       )
     }
@@ -46,27 +47,33 @@ export class SignupComponent implements OnInit {
   isValidated(): boolean {
 
     if (this.user.firstName == "" || this.user.firstName == null) {
-      alert("Enter Your First Name");
+      this.snack.open("Enter Your First Name", "ok");
       return false;
     }
 
     if (this.user.lastName == "" || this.user.lastName == null) {
-      alert("Enter Your last Name");
+      this.snack.open("Enter Your last Name", "ok");
       return false;
     }
 
     if (this.user.email == "" || this.user.email == null) {
-      alert("Enter Your Email ");
+      this.snack.open("Enter Your Email ", "ok");
       return false;
     }
 
     if (this.user.contactNumber == "" || this.user.contactNumber == null) {
-      alert("Enter Your Contact Number");
+      this.snack.open("Enter Your Contact Number", "ok");
       return false;
     }
 
     if (this.user.password == "" || this.user.password == null) {
-      alert("Enter Your Password");
+      this.snack.open("Enter Your Password", "ok");
+      return false;
+    }
+
+    if (this.user.contactNumber.length > 10 || this.user.contactNumber.length < 10) {
+      console.log(this.user.contactNumber.length);
+      this.snack.open("Please Enter 10 Digit Contact Number", "ok");
       return false;
     }
 

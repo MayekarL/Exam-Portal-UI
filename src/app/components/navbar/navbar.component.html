@@ -1,8 +1,49 @@
-<nav>
+<!-- <nav>
     <ul>   
         <li> <a href="#">Home</a></li>
         <li> <a href="#">Contact Us</a></li>
         <li> <a href="#">About Us</a></li>
         <li> <a href="/signup">Register</a></li>
+        <li> <a href="/login">Login</a></li>
     </ul>
-</nav>
+</nav> -->
+<mat-toolbar color="primary">
+  <a [routerLink]="'/'" matTooltip="Home" mat-icon-button class="example-icon"
+    aria-label="Example icon-button with menu icon">
+    <!-- <mat-icon><a href="/">menu_book</a></mat-icon> -->
+    <mat-icon>home</mat-icon>
+
+  </a>
+  <span>Exam Portal</span>
+  <span class="example-spacer"></span>
+  <a  *ngIf="!login.isLoggedIn()"
+  href="/login" [routerLink]="'/login'" matTooltip="Login" mat-icon-button class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon">
+    <mat-icon>login</mat-icon>
+  </a>
+
+  <a  *ngIf="!login.isLoggedIn()" [routerLink]="'/signup'" matTooltip="Register" mat-icon-button class="example-icon"
+    aria-label="Example icon-button with share icon">
+    <mat-icon>app_registration</mat-icon>
+  </a>
+
+  
+
+  <a *ngIf="login.isLoggedIn()" 
+    mat-icon-button class="example-icon favorite-icon "
+    aria-label="Example icon-button with heart icon">
+    <mat-label>{{login.getUser().userRequest.firstName}}</mat-label>
+  </a>
+
+
+  <a *ngIf="login.isLoggedIn()" (click)="logout()"
+  mat-icon-button class="ml20 example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon">
+    <mat-label>Logout</mat-label>
+  </a>
+
+
+ 
+
+
+</mat-toolbar>
