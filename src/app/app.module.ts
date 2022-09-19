@@ -21,7 +21,18 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
-
+import { ProfileComponent } from './pages/profile/profile.component';
+import {MatListModule} from '@angular/material/list';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import {MatTableModule} from '@angular/material/table';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { ViewQuizesComponent } from './pages/admin/view-quizes/view-quizes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +42,14 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ProfileComponent,
+    SidebarComponent,
+    WelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoriesComponent,
+    ViewQuizesComponent,
+    AddQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +64,12 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatListModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

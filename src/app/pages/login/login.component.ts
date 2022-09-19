@@ -46,14 +46,16 @@ export class LoginComponent implements OnInit {
             console.log({user})
             this.loginservice.setUser(user);
             
-            Swal.fire("Success", `Welcome ${user.firstName} glad To see you here`, "success");
+            Swal.fire("Success", `Welcome ${user.userRequest.firstName} glad To see you here`, "success");
 
             if (this.loginservice.getUserRole()=="ADMIN"){
 
               this.router.navigate(['admin']);
+              this.loginservice.loginStatusSubject.next(true);
             } else if (this.loginservice.getUserRole()=="NORMAL"){
 
               this.router.navigate(['user-dashboard']);
+              this.loginservice.loginStatusSubject.next(true);
             }else{
               this.loginservice.logout();
             }
@@ -62,8 +64,6 @@ export class LoginComponent implements OnInit {
             Swal.fire("Error", "Wrong Password / User Name", "error");
           }
         )
-        
-       
       }, (error) => {
         Swal.fire("Please check your username/password", "Wrong Credentials", "error");
       }

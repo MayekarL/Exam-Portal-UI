@@ -2,6 +2,7 @@ import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { switchAll } from 'rxjs';
+import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 @Component({
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService: UserService, private snack: MatSnackBar) { }
+  constructor(private userService: UserService, private snack: MatSnackBar,private login:LoginService) { }
 
   ngOnInit(): void {
   }

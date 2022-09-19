@@ -25,8 +25,10 @@
                     <!-- Contact Number -->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Contact number</mat-label>
-                        <input [(ngModel)]="user.contactNumber" name="contactNumber" type="number" max="10" matInput
-                            placeholder="Placeholder">
+                        <input [(ngModel)]="user.contactNumber" name="contactNumber" type="number" #input maxlength="10" matInput
+                            placeholder="Placeholder"
+                            >
+                            
                     </mat-form-field>
                     <!-- Email Id -->
                     <mat-form-field class="full-width" appearance="outline">
@@ -47,7 +49,7 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>About</mat-label>
                         <input [(ngModel)]="user.about" name="about"  
-                        matInput placeholder="Enter Your Password">
+                        matInput placeholder="Enter About Your Self">
                     </mat-form-field>
 
                     <div class="container text-center">

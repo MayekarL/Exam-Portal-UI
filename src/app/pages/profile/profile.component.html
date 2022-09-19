@@ -1,0 +1,59 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title> Your Profile Details </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="container text-center">
+                    <img class="exam-logo" src="https://media.istockphoto.com/photos/head-and-shoulders-mans-silhouette-picture-id513727339
+                " alt="">
+                    <h1 class="mt20">{{user.userRequest.firstName}} {{user.userRequest.lastName}}</h1>
+                 
+                </div>
+                <div class="row " >
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <tr>
+                                <td>User ID </td>
+                                <td>EXAM{{user.userRequest.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>User Name </td>
+                                <td>{{user.userRequest.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone </td>
+                                <td>{{user.userRequest.contactNumber}}</td>
+                            </tr>
+                            <tr>
+                                <td>Role</td>
+                                <td>{{user.roleName[0]}}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>{{user.userRequest.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>About</td>
+                                <td>{{user.userRequest.about}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+        <button mat-raised-button color="primary"><mat-icon mat-list-icon>edit</mat-icon></button>
+        <button mat-raised-button color="warn"><mat-icon mat-list-icon>delete</mat-icon></button>
+      </mat-card-actions>
+
+</mat-card>
+
+
+<!--  <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+ -->
