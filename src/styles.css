@@ -46,3 +46,17 @@ body { margin: 0;
 .mb10{
     margin-bottom: 10px !important;
 }
+
+
+.truncate{
+    display: block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.example-header-image {
+    background-image: url('assets/ideas.png');
+    background-size: cover;
+  }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
@@ -21,9 +22,6 @@ export class AddQuizComponent implements OnInit {
     category:{
       cId:0,
     },
-    //   private Long cId;
-    // private String title;
-    // private String description;
   };
 
   categories = [
@@ -35,13 +33,14 @@ export class AddQuizComponent implements OnInit {
 
   
 
-  constructor(private quizService: QuizService, private snack: MatSnackBar,private categoryService:CategoryService) { }
+  constructor(private quizService: QuizService, private snack: MatSnackBar,private categoryService:CategoryService,private router:Router) { }
 
   ngOnInit(): void {
     this.categoryService.categories().subscribe(
       (data:any) =>{
         this.categories = data.categoryList; 
         console.log(this.categories);
+       
       },(error) =>{
         Swal.fire("Error","Some Thing Went Wrong !!","error");
       },
@@ -53,6 +52,7 @@ export class AddQuizComponent implements OnInit {
       this.quizService.createQuiz(this.quiz).subscribe(
         (data: any) => {
           Swal.fire("Success", "New Quiz Created", data.status)
+           this.router.navigate(['admin/view-quizzes']);
         }, (error) => {
           Swal.fire("Error", "Something Went Wrong", "error")
         }

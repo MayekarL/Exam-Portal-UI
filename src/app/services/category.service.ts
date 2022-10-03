@@ -14,6 +14,10 @@ export class CategoryService {
     return this.http.get(`${baseUrl}/category/get`);
   }
 
+   //Fetching all active categories from Server 
+   public activeCategories(){
+    return this.http.get(`${baseUrl}/get/active`);
+  }
   //Creating Catgeory 
 
   public createCategory(category:any){

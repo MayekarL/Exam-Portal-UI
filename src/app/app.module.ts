@@ -31,8 +31,24 @@ import { AddCategoriesComponent } from './pages/admin/add-categories/add-categor
 import {MatDividerModule} from '@angular/material/divider';
 import { ViewQuizesComponent } from './pages/admin/view-quizes/view-quizes.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
+
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuizQuestionComponent } from './pages/admin/view-quiz-question/view-quiz-question.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { UserViewCategoryComponent } from './pages/user/user-view-category/user-view-category.component';
+import { ViewQuestionComponent } from './pages/user/view-question/view-question.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/user/start-quiz/start-quiz.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +65,17 @@ import {MatSelectModule} from '@angular/material/select';
     ViewCategoriesComponent,
     AddCategoriesComponent,
     ViewQuizesComponent,
-    AddQuizComponent
+    AddQuizComponent,
+    UpdateQuizComponent,
+    ViewQuizQuestionComponent,
+    AddQuestionComponent,
+    UserSidebarComponent,
+    UserProfileComponent,
+    LoadQuizComponent,
+    UserViewCategoryComponent,
+    ViewQuestionComponent,
+    InstructionsComponent,
+    StartQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +95,13 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatDividerModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    })
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
